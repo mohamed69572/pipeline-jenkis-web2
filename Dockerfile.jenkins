@@ -1,0 +1,17 @@
+ARG JENKINS_VERSION
+
+FROM jenkins/jenkins:${JENKINS_VERSION}
+
+USER root
+
+ENV DEBIAN_FRONTEND noninteractive
+
+# ----------------------------------------
+
+# Instalar los paquetes adicionales necesarios
+
+# ----------------------------------------
+
+USER jenkins
+
+RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
